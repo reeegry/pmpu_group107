@@ -8,7 +8,7 @@ bool triangle(float a, float b, float c);
 
 int main()
 {
-    setlocale(LC_CTYPE, "rus");
+    setlocale(LC_CTYPE, "rus"); // Локализирует только вывод, ввод на кирилице не работает!!!
     float a, b, c;
     printf("Введите размеры сторон a, b, c: ");
     scanf("%d%d%d", &a, &b, &c);

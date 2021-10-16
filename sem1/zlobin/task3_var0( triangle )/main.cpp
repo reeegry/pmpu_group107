@@ -7,19 +7,19 @@ bool triangle(float a, float b, float c);
 
 int main()
 {
+    setlocale(LC_CTYPE, "rus");
     float a, b, c;
-    printf("Enter numbers a, b, c: ");
+    printf("Введите размеры сторон a, b, c: ");
     scanf("%d%d%d", &a, &b, &c);
     if(triangle(a, b, c) == true)
-        printf("Answer: YES\n");
+        printf("Введёные числа являются сторонами треугольника");
     else
-        printf("Answer: no\n");
+        printf("Введёные числа не являются сторонами треугольника");
     return 0;
 }
 
 bool triangle(float a, float b, float c)
 {
-    printf("\nAre a, b, c the sides of triangle with ninety degrees angle?\n");
     if(pow(c, 2) == pow(a, 2) + pow(b, 2))
     {
         return true;
@@ -31,5 +31,9 @@ bool triangle(float a, float b, float c)
     else if(pow(a, 2) == pow(c, 2) + pow(b, 2))
     {
         return true;
+    }
+    else
+    {
+        return false;
     }
 }

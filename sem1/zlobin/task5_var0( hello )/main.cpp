@@ -6,9 +6,11 @@ using namespace std;
 int main()
 {
     string name;
-    //string a;
-    //scanf("%s", &a);
-    //printf("%s%s", "hello, ", &a);
+    /*
+    scanf("%s", name.c_str());
+    printf("%s%s", "hello, ", name.c_str());
+    */
+    //printf, scanf работают только через метод c_str
     cin >> name;
     cout << "Hello, " << name;
     return 0;

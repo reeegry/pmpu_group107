@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-int recFib(int i)
+long long int recFib(int i)
 {
     if (!i)
     {

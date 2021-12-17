@@ -1,8 +1,8 @@
 #include <iostream>
 
-int cycleFib(int i)
+long long int cycleFib(int i)
 {
-    int sum = 0, prev1 = 1, prev2 = 1;
+    long long int sum = 0, prev1 = 1, prev2 = 1;
     while (i - 2)
     {
         sum = prev1 + prev2;

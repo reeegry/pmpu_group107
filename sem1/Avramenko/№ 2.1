@@ -1,0 +1,88 @@
+//  set
+int main() {
+	unsigned int a, b, i, x, aandb, aorb, abezb, asimb, m;
+	cin >> a >> b;
+	cout << "{";
+	m = 0;
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+		if ((x & a) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	m = 0;
+	cout << "}" << endl << "{";
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+
+		if ((x & b) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	aandb = a & b;
+	aorb = a | b;
+	abezb = (a) & (~b);
+	asimb = a ^ b;
+	cout << "}" << endl << "peresechenie: {";
+	m = 0;
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+
+		if ((x & aandb) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	m = 0;
+	cout << "}" << endl << "ob'edinenie: {";
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+
+		if ((x & aorb) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	m = 0;
+	cout << "}" << endl << "raznost': {";
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+
+		if ((x & abezb) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	m = 0;
+	cout << "}" << endl << "simmetr. raznost': {";
+	for (x = 1, i = 1; i < 33; i++, x = x * 2) {
+
+		if ((x & asimb) != 0) {
+			m += 1;
+			if (m != 1) {
+				cout << ", ";
+			}
+			cout << i;
+
+		}
+	}
+	cout << "}";
+
+}

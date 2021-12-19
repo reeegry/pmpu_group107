@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿// Spizdil from Evgeny Jestokanov
+
+#include <iostream>
 #include <cmath>
 
 bool func(long double x, long double y, long double z)

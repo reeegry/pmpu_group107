@@ -7,5 +7,5 @@ int main() {
     while (n > 92){
         cin >> n;
     }
-    cout << fib_cycle(n) << " " << fib_recursion(n,3,1,1) << " " << fib_bine(n) << '\n';
+    cout << fib_cycle(n) << " " << fib_recursion(n) << " " << fib_bine(n) << '\n';
 }

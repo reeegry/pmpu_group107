@@ -18,7 +18,7 @@ long long int fib_cycle(long long int n){
     }
     return 0;
 }
-long long int fib_recursion(long long int n, long long int cn, long long int a, long long int b){
+long long int fib_recursion_cog(long long int n, long long int cn, long long int a, long long int b){
     if (n == 0){
         return 0;
     }
@@ -33,4 +33,7 @@ long long int fib_recursion(long long int n, long long int cn, long long int a, 
 }
 long long int fib_bine(long long int n){
     return (pow(((1 + sqrt(5)) / 2), n) - pow(((1 - sqrt(5)) / 2), n))/sqrt(5);
+}
+long long int fib_recursion(long long int n){
+    return fib_recursion_cog(n,3,1,1);
 }

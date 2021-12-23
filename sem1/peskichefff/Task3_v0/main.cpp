@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 
 bool checkInput(string s)
@@ -12,14 +13,32 @@ bool checkInput(string s)
 
 }
 
-bool triangle(float a, float b, float c)
+void bubbleSort(vector<long double>& arr)
 {
-    if(
-            powf(a, 2) + powf(b, 2) == powf(c, 2) ||
-            powf(b, 2) + powf(c, 2) == powf(a, 2) ||
-            powf(a, 2) + powf(c, 2) == powf(b, 2)
-    ) return true;
-    return false;
+    bool flag = true;
+    while(flag)
+    {
+        flag = false;
+        for(int i = 0; i < arr.size() - 1; i++)
+        {
+            if(arr[i] > arr[i+1])
+            {
+                arr[i] -= arr[i+1];
+                arr[i+1] += arr[i];
+                arr[i] = arr[i+1] - arr[i];
+                flag = true;
+            }
+        }
+    }
+}
+
+bool checkValue(long double x, long double y, long double z)
+{
+    return ((fabs(x) > 1.7e154) || (fabs(y) > 1.7e154) || (fabs(z) > 1.7e154) ||
+            (x <= 0) || (y <= 0) || (z <= 0) ||
+            (fabs(x) < 1.7e-154) ||
+            (fabs(y) < 1.7e-154) ||
+            (fabs(z) < 1.7e-154));
 }
 
 int main()
@@ -28,25 +47,28 @@ int main()
 
     cin >> sA >> sB >> sC;
 
-    while(!checkInput(sA) || !checkInput(sB) || !checkInput(sC))
+    while(!checkInput(sA) || !checkInput(sB) || !checkInput(sC) || checkValue(stold(sA), stold(sB), stold(sC)))
     {
         cout << "Input correct value..." << endl;
         cin >> sA >> sB >> sC;
     }
 
-    float a = stof(sA), b = stof(sB), c = stof(sC);
+    vector<long double> arr = { stold(sA), stold(sB), stold(sC) };
+    bubbleSort(arr);
 
-    if ((a >= pow(10,153)) || (b >= pow(10,153)) || (c >= pow(10,153))){
+    if ((arr[0] >= pow(10,153)) || (arr[1] >= pow(10,153)) || (arr[2] >= pow(10,153))){
         cout << "One or several numbers are too big";
         return 1;
     }
     else
-    if ((abs(a) <= pow(10,-153) && (a!=0)) || (abs(b) <= pow(10,-153) && (b!=0)) || (abs(c) <= pow(10,-153) && (c!=0))){
+    if ((abs(arr[0]) <= pow(10,-153) && (arr[0]!=0)) || (abs(arr[1]) <= pow(10,-153) && (arr[1]!=0)) || (abs(arr[2]) <= pow(10,-153) && (arr[2]!=0))){
         cout << "One or several numbers are too small";
         return 1;
     }
 
-    cout << "Input may " << (triangle(a, b, c) ? "" : "not ") << "be sides of right-angled triangle";
+    long double exp = abs(arr[0]*arr[0] + arr[1]*arr[1] - arr[2]*arr[2]);
+
+    cout << "Input may " << ((exp / (arr[0] * arr[0])) < (10e-16) ? "" : "not ") << "be sides of right-angled triangle";
 
     return 0;
 }

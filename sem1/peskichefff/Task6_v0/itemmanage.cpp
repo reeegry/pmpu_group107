@@ -19,6 +19,10 @@ vector<int> get_items(const string& fn, bool bin)
     file.open(fn);
     string e;
     vector<int> result;
+    if(!file)
+    {
+        throw invalid_argument("Incorrect text file path");
+    }
     while (file >> e)
     {
         if(!checkInput(e))

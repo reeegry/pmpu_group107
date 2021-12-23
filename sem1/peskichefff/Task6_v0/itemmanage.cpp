@@ -4,25 +4,28 @@
 
 using namespace std;
 
+bool checkInput(const string& s)
+{
+    for(char i : s)
+    {
+        if(!isdigit(i) && i != 'e' && i != '-') return false;
+    }
+    return true;
+}
+
 vector<int> get_items(const string& fn, bool bin)
 {
     ifstream file;
     file.open(fn);
-    int e;
+    string e;
     vector<int> result;
-    if(bin)
+    while (file >> e)
     {
-        while (file >> e)
+        if(!checkInput(e))
         {
-            result.push_back(stoi(to_string(e), nullptr, 2));
+            throw invalid_argument("Text file values must be integers only (represented as bin or decimal)");
         }
-    }
-    else
-    {
-        while (file >> e)
-        {
-            result.push_back(e);
-        }
+        result.push_back(bin ? stoi(e, nullptr, 2) : stoi(e));
     }
     return result;
 }

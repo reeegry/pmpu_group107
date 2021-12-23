@@ -5,7 +5,7 @@ bool checkInput(string s)
 {
     for(char i : s)
     {
-        if(!isdigit(i) && i != 'e' && i != '-') return false;
+        if(!isdigit(i) && i != 'e') return false;
     }
     return true;
 
@@ -23,7 +23,7 @@ int main()
         cin >> sA >> sB;
     }
 
-    int x1 = stoi(sA), x2 = stoi(sB);
+    unsigned long x1 = stoul(sA), x2 = stoul(sB);
 
     cout << "x1 + x2 = " << x1 + x2 << endl;
     cout << "x1 - x2 = " << x1 - x2 << endl;
